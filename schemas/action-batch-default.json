@@ -1,0 +1,89 @@
+{
+    "definitions": {},
+    "$schema": "",
+    "$id": "action-batch-default.json",
+    "type": "object",
+    "title": "Action Batch Root Schema",
+    "required": [
+        "confirmed",
+        "synchronous",
+        "actions"
+    ],
+    "properties": {
+        "confirmed": {
+            "$id": "#/properties/confirmed",
+            "mergeStrategy": "append",
+            "type": "boolean",
+            "title": "Confirmed",
+            "default": true,
+            "examples": [
+                true,
+                false
+            ]
+        },
+        "synchronous": {
+            "$id": "#/properties/synchronous",
+            "mergeStrategy": "append",
+            "type": "boolean",
+            "title": "Synchronous",
+            "default": true,
+            "examples": [
+                true,
+                false
+            ]
+        },
+        "actions": {
+            "$id": "#/properties/actions",
+            "mergeStrategy": "append",
+            "type": "array",
+            "title": "Individual Actions",
+            "items": {
+                "$id": "#/properties/actions/items",
+                "type": "object",
+                "title": "Individual Action Items",
+                "required": [
+                    "resource",
+                    "operation",
+                    "body"
+                ],
+                "properties": {
+                    "resource": {
+                        "mergeStrategy": "append",
+                        "$id": "#/properties/actions/items/properties/resource",
+                        "type": "string",
+                        "title": "The Resource URL Schema",
+                        "description": "Resource URL Component for a Given Org.  See Meraki.IO",
+                        "default": "",
+                        "examples": [
+                            "/networks/{networkID}/devices/{deviceID}",
+                            "/devices/{deviceID}/switchPorts/{portNumber}",
+                            "/networks/{networkID}/vlans"
+                        ],
+                        "pattern": ""
+                    },
+                    "operation": {
+                        "$id": "#/properties/actions/items/properties/operation",
+                        "type": "string",
+                        "title": "Individual Action Batch Operation",
+                        "description": "Type of Action to Perform.  See Meraki.io",
+                        "default": "",
+                        "examples": [
+                            "update",
+                            "create",
+                            "delete",
+                            "claim",
+                            "bind"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "body": {
+                        "$id": "#/properties/actions/items/properties/body",
+                        "type": "object",
+                        "title": "Individual Actions",
+                        "description": "Actions to Perform.  See Meraki.io"
+                    }
+                }
+            }
+        }
+    }
+}
