@@ -1,0 +1,31 @@
+{
+	"common": {
+		"apikey": "",
+		"orgid": "",
+		"batchid": "",
+		"prettyprint": 
+	},
+	"other": {
+		"createactionbatch": {
+			"json_actionfile_path": "",
+			"confirm": ,
+			"synchronous": ,
+			"exportfile_path": ""
+		},
+		"updateactionbatch": {
+			"json_actionfile_path": "",
+			"confirm": ,
+			"synchronous": ,
+			"exportfile_path": ""
+		},
+		"mergeactions": {
+			"exportfile_path": "",
+			"json_actionfile_path1": "",
+			"json_actionfile_path2": "",
+			"json_actionfile_path3": "",
+			"json_actionfile_path4": "",
+			"json_actionfile_path5": ""
+		}
+
+	}
+}
