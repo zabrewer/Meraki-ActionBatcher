@@ -63,12 +63,17 @@ python3 -m venv Meraki-ActionBatcher
 ```
 
 **3. Change to the Meraki-ActionBatcher directory**
+```
+cd Meraki-ActionBatcher
+```
 
 **4. Activate the virtual environment**
 
 For Windows
 ```
+Scripts\activate.bat
 ```
+
 For Mac
 ```
 source bin/activate
@@ -86,7 +91,15 @@ python actionbatcher.py
 
 To exit, close the ActionBatcher GUI window or cntrl+C at the command prompt.  To deactivate the virtual environment:
 
+For Windows
+```
+Scripts\deactivate.bat
+```
 
+For Mac
+```
+deactivate
+```
 
 ## Compiling to an Executable
 (Coming Soon)
