@@ -14,6 +14,7 @@
         - Creating Actions using JSON
         - Using Action Tools to Create Actions (for Action Batches)
 
+<img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png"/>
 
 # Introduction
 
@@ -73,14 +74,12 @@ Most of the Action Batcher operations mirror the Action Batch API.
 | Operation    | Description    | Screenshot |
 |:----------------------|-----------|------|
 | Create Action Batch  |  Creates a new Action Batch for the given org |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png"/>|
-| Update Action Batch   |     CheckBox |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
-| GetOrg Action Batch |        CheckBox | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
-| Get Action Batch  |      CheckBox|  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>   |
-| Action Batch Status  |       TextCtrl |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e9f5e-07c5-11e5-86e5-82f011c538cf.png"/>  | 
-| Delete Action Batches |              DropDown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f53ccbe4-07c5-11e5-80e5-510e2aa22922.png"/> | 
-| Check Until Complete | RadioGroup | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f553feb8-07c5-11e5-9d5b-eaa4772075a9.png"/>
-|choice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|        DropDown | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e4da6-07c5-11e5-9e66-d8e6d7f18ac6.png"/> |
-
+| Update Action Batch   | Updates an existing Action Batch |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/UpdateActionBatch.png"/>|
+| GetOrg Action Batch | Get all Action Batches for a given Org | <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetOrgActionBatch.png"/>|
+| Get Action Batch  | Get the details of a single action batch |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetActionBatch.png"/>   |
+| Action Batch Status  | Get Action Batches that match a given criteria (Confirmed/Unconfirmed, Complete/Incomplete, Failed) |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/ActionBatchStatus.png"/>  | 
+| Delete Action Batches | Deletes an Action Batch (Unconfirmed status only) | <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/DeleteActionBatches.png"/> | 
+| Check Until Complete | Keep checking a given Action Batch until it is complete | <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CheckUntilComplete.png"/> |
 
 ## Action Batcher Operations - Create Action Batch
 
