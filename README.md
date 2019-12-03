@@ -14,7 +14,7 @@
         - Creating Actions using JSON
         - Using Action Tools to Create Actions (for Action Batches)
 
-<img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png" align="center" height="250" width="450"/>
+<img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png" align="center" height="687" width="819"/>
 
 # Introduction
 
