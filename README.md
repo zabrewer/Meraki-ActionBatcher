@@ -1,14 +1,15 @@
+# Meraki ActionBatcher
 -----------------  
 
-- [Introduction](#introduction)
-- [About Meraki Action Batches](#About-Meraki-Action-Batches)
-- [Installation Instructions](#Installation-Instructions)
+- [Introduction](#Introduction)
+- [About Meraki Action Batches](#Meraki-Action-Batches)
+- [Installation](#Installation)
     - [Compiling To Executable](#Compiling-to-Executable)
 - [Use](#Use)
     - [Warning!](#Warning!)
-    - [Action Batcher Operations Overview](#Action-Batcher-Operations)
-    - [Action Batcher Operations - Create Action Batch](Action-Batcher-Operations-Create-Action-Batch)
-    - [Action Batcher Operations - Update Action Batch](Action-Batcher-Operations-Update-Action-Batch)
+    - [Action Batcher Operations Overview](#Action-Batcher-Operations-Overview)
+        - [Action Batcher Operations - Create Action Batch](Action-Batcher-Operations-Create-Action-Batch)
+        - [Action Batcher Operations - Update Action Batch](Action-Batcher-Operations-Update-Action-Batch)
     - [Creating Actions](Creating-Actions)
         - Creating Actions using JSON
         - Using Action Tools to Create Actions (for Action Batches)
@@ -16,9 +17,9 @@
 
 # Introduction
 
-Meraki Action Batcher is a Python-based GUI tool for creating, updating, verifying, deleting, and monitoring Meraki Action Batches.  Action Batcher simplifies interaction with the Meraki Action Batch API so that you can focus on individual actions.  There is also an included utility called Action Tools meant to simplify creation of "Actions" to commit to one or more Action Batches.
+Meraki Action Batcher is a Python-based GUI tool for creating, updating, verifying, deleting, and monitoring Meraki Action Batches.  Action Batcher simplifies interaction with the Meraki Action Batch API so that you can focus on individual actions.  This project is part of the [Meraki ActionBatch Tools](https://github.com/zabrewer/Meraki-ActionBatch-Tools) parent repo and can be used with the [Meraki Action Composer](https://github.com/zabrewer/Meraki-ActionComposer/) complimentary tool.
 
-# About Meraki Action Batches
+# Meraki Action Batches
 
 In June 2019, Meraki announced Action Batches as a new way for making changes in bulk via the Meraki Dashboard API.  The obvious benefit of Action Batches is a way to navigate the Dashboard API rate limit of 5 calls per second (per individual Dashboard Org).  Depending on the requirements, authors of a given script or app sometimes had to navigate API with respective code (e.g. exponential backoff). 
 
@@ -42,9 +43,7 @@ From the Action Batch documentation:
 Please review the [Action Batch API documentation](https://developer.cisco.com/meraki/api/#/rest/guides/action-batches) to understand Action Batches.
 
 # Installation
-
-## Compiling to Executable
-TO DO
+pip install -r requirements.txt
 
 # Use
 
@@ -67,12 +66,27 @@ Before working with action batches, you must have an API Key and know the OrgID.
 * The OrgID(s), NetworkIDs, and other relative information can be retrieved using Python, cURL, the [Meraki Dashboard Postman Collection](http://postman.meraki.com/), and many other ways
 * [Cisco Devnet](https://developer.cisco.com/meraki/) is a good place to start if you are new to the Meraki Dashboard API.
 
-## Action Batcher Operations
+## Action Batcher Operations Overview
 
-Most of the Action Batcher operations mirror the API.  
+Most of the Action Batcher operations mirror the Action Batch API.  
 
-Currently they are:
+| Operation    | Description    | Screenshot |
+|:----------------------|-----------|------|
+| Create Action Batch  |  Creates a new Action Batch for the given org |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e9f5e-07c5-11e5-86e5-82f011c538cf.png"/>|
+| Update Action Batch   |     CheckBox |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
+| GetOrg Action Batch |        CheckBox | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
+| Get Action Batch  |      CheckBox|  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>   |
+| Action Batch Status  |       TextCtrl |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e9f5e-07c5-11e5-86e5-82f011c538cf.png"/>  | 
+| Delete Action Batches |              DropDown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f53ccbe4-07c5-11e5-80e5-510e2aa22922.png"/> | 
+| Check Until Complete | RadioGroup | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f553feb8-07c5-11e5-9d5b-eaa4772075a9.png"/>
+|choice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|        DropDown | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e4da6-07c5-11e5-9e66-d8e6d7f18ac6.png"/> |
+
+
+## Action Batcher Operations - Create Action Batch
+
 * **Create An Action Batch** - Creates a new Action Batch for the given org
+    * 
+
 
 | Create Action Batch | Update Action Batch | Get Org Action Batch | Get Action Batch | Action Batch Status | Delete Action Batches | Check Until Complete |
 |-------------|---------------|---------------|--------------|----------------|----------------|----------------|

@@ -23,8 +23,7 @@ def api_error_status(apikey, orgid, data, batchid):
 
     if batchid == None:
         usermesage = base_usermessage
-
-    
+        
     else:
         batchmessage = stylize('BatchID Value: ', bold_formatting) + stylize((batchid), info_formatting)
         usermessage = base_usermessage + '\n' + batchmessage
