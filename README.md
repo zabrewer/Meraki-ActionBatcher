@@ -53,18 +53,18 @@ Meraki ActionBatcher should work on Python 3.5 or greater.  In addition to modul
 
 Note: For mac, replace "python" with "python3" and for both platforms, make sure the output of python -v is 3.5 or greater.
 
-***1. Clone this repository locally
+**1. Clone this repository locally
 ```
 git clone https://github.com/zabrewer/Meraki-ActionBatcher.git
 ```
-***2. Create the virtual environment
+**2. Create the virtual environment
 ```
 python3 -m venv Meraki-ActionBatcher
 ```
 
-***3. Change to the Meraki-ActionBatcher directory
+**3. Change to the Meraki-ActionBatcher directory
 
-***4. Activate the virtual environment
+**4. Activate the virtual environment
 
 For Windows
 ```
@@ -74,12 +74,12 @@ For Mac
 source bin/activate
 ```
 
-***5. Satisfy dependencies by installing external packages
+**5. Satisfy dependencies by installing external packages
 ```
 pip install -r requirements.txt
 ```
 
-***6. Launch ActionBatcher while in virtual environment
+**6. Launch ActionBatcher while in virtual environment
 ```
 python actionbatcher.py
 ```
