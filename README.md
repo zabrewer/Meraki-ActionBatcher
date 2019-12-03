@@ -72,7 +72,7 @@ Most of the Action Batcher operations mirror the Action Batch API.
 
 | Operation    | Description    | Screenshot |
 |:----------------------|-----------|------|
-| Create Action Batch  |  Creates a new Action Batch for the given org |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f54e9f5e-07c5-11e5-86e5-82f011c538cf.png"/>|
+| Create Action Batch  |  Creates a new Action Batch for the given org |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png"/>|
 | Update Action Batch   |     CheckBox |  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
 | GetOrg Action Batch |        CheckBox | <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>|
 | Get Action Batch  |      CheckBox|  <img src="https://github.com/chriskiehl/GooeyImages/raw/images/readme-images/f538c850-07c5-11e5-8cbe-864badfa54a9.png"/>   |
