@@ -4,7 +4,9 @@
 - [Introduction](#Introduction)
 - [About Meraki Action Batches](#Meraki-Action-Batches)
 - [Installation](#Installation)
-    - [Compiling To Executable](#Compiling-to-Executable)
+    - [Requirements](#Requirements)
+    - [Installing to a Python Virtual Environment](#Installing-to-a-Python-Virtual-Environment)
+    - [Compiling to an Executable](#Compiling-to-an-Executable)
 - [Use](#Use)
     - [Warning!](#Warning!)
     - [Action Batcher Operations Overview](#Action-Batcher-Operations-Overview)
@@ -49,7 +51,7 @@ Please review the [Action Batch API documentation](https://developer.cisco.com/m
 
 Meraki ActionBatcher should work on Python 3.5 or greater.  In addition to modules distributed with ActionBatcher, ActionBatcher depends on the [Gooey](https://pypi.org/project/Gooey/) and [JSONMerge](https://pypi.org/project/jsonmerge/) external packages.  Both can be installed via the included requirements.txt file
 
-## Install using a virtual environment
+## Installing to a Python Virtual Environment
 
 Note: For mac, replace "python" with "python3" and for both platforms, make sure the output of python -v is 3.5 or greater.
 
@@ -100,10 +102,12 @@ For Mac
 ```
 deactivate
 ```
-[Index](#Meraki-ActionBatcher)
+[Back To Top](#Meraki-ActionBatcher)
 
 ## Compiling to an Executable
 (Coming Soon)
+
+[Back To Top](#Meraki-ActionBatcher)
 
 # Use
 
@@ -139,6 +143,8 @@ Most of the Action Batcher operations mirror the Action Batch API.
 | Action Batch Status  | Get Action Batches that match a given criteria (Confirmed/Unconfirmed, Complete/Incomplete, Failed) |  <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/ActionBatchStatus.png"/>  | 
 | Delete Action Batches | Deletes an Action Batch (Unconfirmed status only) | <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/DeleteActionBatches.png"/> | 
 | Check Until Complete | Keep checking a given Action Batch until it is complete | <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CheckUntilComplete.png"/> |
+
+[Back To Top](#Meraki-ActionBatcher)
 
 ## Action Batcher Operations - Create Action Batch
 
