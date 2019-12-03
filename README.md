@@ -14,7 +14,7 @@
         - Creating Actions using JSON
         - Using Action Tools to Create Actions (for Action Batches)
 
-<img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png"/>
+<img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png" align="center" height="250" width="450"/>
 
 # Introduction
 
@@ -44,7 +44,52 @@ From the Action Batch documentation:
 Please review the [Action Batch API documentation](https://developer.cisco.com/meraki/api/#/rest/guides/action-batches) to understand Action Batches.
 
 # Installation
+
+## Requirements
+
+Meraki ActionBatcher should work on Python 3.5 or greater.  In addition to modules distributed with ActionBatcher, ActionBatcher depends on the [Gooey](https://pypi.org/project/Gooey/) and [JSONMerge](https://pypi.org/project/jsonmerge/) external packages.  Both can be installed via the included requirements.txt file
+
+## Install using a virtual environment
+
+Note: For mac, replace "python" with "python3" and for both platforms, make sure the output of python -v is 3.5 or greater.
+
+***1. Clone this repository locally
+```
+git clone https://github.com/zabrewer/Meraki-ActionBatcher.git
+```
+***2. Create the virtual environment
+```
+python3 -m venv Meraki-ActionBatcher
+```
+
+***3. Change to the Meraki-ActionBatcher directory
+
+***4. Activate the virtual environment
+
+For Windows
+```
+```
+For Mac
+```
+source bin/activate
+```
+
+***5. Satisfy dependencies by installing external packages
+```
 pip install -r requirements.txt
+```
+
+***6. Launch ActionBatcher while in virtual environment
+```
+python actionbatcher.py
+```
+
+To exit, close the ActionBatcher GUI window or cntrl+C at the command prompt.  To deactivate the virtual environment:
+
+
+
+## Compiling to an Executable
+(Coming Soon)
 
 # Use
 
@@ -85,11 +130,6 @@ Most of the Action Batcher operations mirror the Action Batch API.
 
 * **Create An Action Batch** - Creates a new Action Batch for the given org
     * 
-
-
-| Create Action Batch | Update Action Batch | Get Org Action Batch | Get Action Batch | Action Batch Status | Delete Action Batches | Check Until Complete |
-|-------------|---------------|---------------|--------------|----------------|----------------|----------------|
-| <img src="https://cloud.githubusercontent.com/assets/1408720/7950190/4414e54e-0965-11e5-964b-f717a7adaac6.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950189/4411b824-0965-11e5-905a-3a2b5df0efb3.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950192/44165442-0965-11e5-8edf-b8305353285f.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950188/4410dcce-0965-11e5-8243-c1d832c05887.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950191/4415432c-0965-11e5-9190-17f55460faf3.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950191/4415432c-0965-11e5-9190-17f55460faf3.jpg"> | <img src="https://cloud.githubusercontent.com/assets/1408720/7950191/4415432c-0965-11e5-9190-17f55460faf3.jpg"> | 
 
 ## Config File
 
