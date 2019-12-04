@@ -292,7 +292,7 @@ Check a **confirmed** Action Batch until it is complete
 ## Creating Actions
 
 
-``` json5
+``` javascript
 {
 
 	"actions": [{
