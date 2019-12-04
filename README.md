@@ -153,13 +153,13 @@ Most of the Action Batcher operations mirror the Action Batch API.
 
 | Operation    | Description    | Screenshot |
 |:----------------------|-----------|------|
-| [Create Action Batch](#Action-Batcher-Operations:-Create-Action-Batch)  |  Creates a new Action Batch for the given org |  ![Create Action Batch](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png)|
-| [Update Action Batch](#Action-Batcher-Operations:-Update-Action-Batch)   | Updates an existing Action Batch |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/UpdateActionBatch.png)|
-| [GetOrg Action Batch](#Action-Batcher-Operations:-GetOrg-Action-Batch)| Get all Action Batches for a given Org | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetOrgActionBatch.png)|
-| [Get Action Batch](#Action-Batcher-Operations:-Get-Action-Batch)  | Get the details of a single action batch |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetActionBatch.png)   |
-| [Action Batch Status](#Action-Batcher-Operations:-Action-Batch-Status)  | Get Action Batches that match a given criteria (Confirmed/Unconfirmed, Complete/Incomplete, Failed) |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/ActionBatchStatus.png)  | 
-| [Delete Action Batches](#Action-Batcher-Operations:-Delete-Action-Batches) | Deletes an Action Batch (Unconfirmed status only) | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/DeleteActionBatches.png) | 
-| [Check Until Complete](#Action-Batcher-Operations:-Check-Until-Complete) | Keep checking a given Action Batch until it is complete | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CheckUntilComplete.png) |
+| [Create Action Batch](#Action-Batcher-Operations-Create-Action-Batch)  |  Creates a new Action Batch for the given org |  ![Create Action Batch](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatch.png)|
+| [Update Action Batch](#Action-Batcher-Operations-Update-Action-Batch)   | Updates an existing Action Batch |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/UpdateActionBatch.png)|
+| [GetOrg Action Batch](#Action-Batcher-Operations-GetOrg-Action-Batch)| Get all Action Batches for a given Org | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetOrgActionBatch.png)|
+| [Get Action Batch](#Action-Batcher-Operations-Get-Action-Batch)  | Get the details of a single action batch |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/GetActionBatch.png)   |
+| [Action Batch Status](#Action-Batcher-Operations-Action-Batch-Status)  | Get Action Batches that match a given criteria (Confirmed/Unconfirmed, Complete/Incomplete, Failed) |  ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/ActionBatchStatus.png)  | 
+| [Delete Action Batches](#Action-Batcher-Operations-Delete-Action-Batches) | Deletes an Action Batch (Unconfirmed status only) | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/DeleteActionBatches.png) | 
+| [Check Until Complete](#Action-Batcher-Operations-Check-Until-Complete) | Keep checking a given Action Batch until it is complete | ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CheckUntilComplete.png) |
 
 [Back To Index](#Meraki-ActionBatcher)
 
