@@ -10,13 +10,13 @@
 - [Use](#Use)
     - [Warning!](#Warning!)
     - [Action Batcher Operations Overview](#action-batcher-operations-overview)
-        - [Action Batcher Operations: Create Action Batch](#action-batcher-operations:-create-action-batch)
-        - [Action Batcher Operations: Update Action Batch](#Action-Batcher-Operations:-Update-Action-Batch)
-        - [Action Batcher Operations: GetOrg Action Batch](#Action-Batcher-Operations:-GetOrg-Action-Batch)
-        - [Action Batcher Operations: Get Action Batch](#Action-Batcher-Operations:-Get-Action-Batch)
-        - [Action Batcher Operations: Action Batch Status](#Action-Batcher-Operations:-Action-Batch-Status)
-        - [Action Batcher Operations: Delete Action Batches](#Action-Batcher-Operations:-Delete-Action-Batches)
-        - [Action Batcher Operations: Check Until Complete](#Action-Batcher-Operations:-Check-Until-Complete)
+        - [Action Batcher Operations: Create Action Batch](#action-batcher-operations-create-action-batch)
+        - [Action Batcher Operations: Update Action Batch](#Action-Batcher-Operations-Update-Action-Batch)
+        - [Action Batcher Operations: GetOrg Action Batch](#Action-Batcher-Operations-GetOrg-Action-Batch)
+        - [Action Batcher Operations: Get Action Batch](#Action-Batcher-Operations-Get-Action-Batch)
+        - [Action Batcher Operations: Action Batch Status](#Action-Batcher-Operations-Action-Batch-Status)
+        - [Action Batcher Operations: Delete Action Batches](#Action-Batcher-Operations-Delete-Action-Batches)
+        - [Action Batcher Operations: Check Until Complete](#Action-Batcher-Operations-Check-Until-Complete)
 - [Creating Actions](#Creating-Actions)
 - [Using Default Config File](#Using-Default-Config-File)
 - [Changelog](#Changelog)
@@ -316,7 +316,7 @@ Note that the following is an example for demonstration and is **not** valid JSO
 The Action Batcher tool only expects the actions themselves.  So a basic template JSON file for Action Batcher would be as follows (again, this is an example and not valid JSON):
 
 
-```JSON
+```Javascript
 {
     "actions": [{
         "resource": "/path/to/resource",
@@ -330,6 +330,8 @@ The Action Batcher tool only expects the actions themselves.  So a basic templat
 
 Let's take a basic example that adds a tag for a basic network device (this *is* valid JSON and would be accepted by Action Batcher once the {{NetworkID}} and {{DeviceID}} variables were changed to one that exists within the given Org):
 
+```Javascript
+
 {
     "actions": [{
         "resource": "/networks/{{NetworkID}}/devices/{{DeviceID}}",
@@ -339,7 +341,7 @@ Let's take a basic example that adds a tag for a basic network device (this *is*
         }
     }]
 }
-
+```
 
 A more complete example - the JSON for the actions used in the actionBatch-VlanUpdate.py example script on [Cisco Devnet's documentation for Action Batches](https://developer.cisco.com/meraki/api/#/rest/guides/action-batches).
 
@@ -354,7 +356,7 @@ switch_b - device ID for switch_b
 tags - any tags to update the switches with
 
 
-```JSON
+```Javascript
 {
 
     "actions": [{
