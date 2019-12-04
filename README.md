@@ -12,9 +12,10 @@
     - [Action Batcher Operations Overview](#Action-Batcher-Operations-Overview)
         - [Action Batcher Operations - Create Action Batch](Action-Batcher-Operations-Create-Action-Batch)
         - [Action Batcher Operations - Update Action Batch](Action-Batcher-Operations-Update-Action-Batch)
-    - [Creating Actions](Creating-Actions)
-        - Creating Actions using JSON
-        - Using Action Tools to Create Actions (for Action Batches)
+- [Creating Actions](Creating-Actions)
+    - Creating Actions using JSON
+    - Using Action Tools to Create Actions (for Action Batches)
+- [Using Default Config File](Using-Default-Config-File)
 
 <img src="https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatchSmall.png" align="center"/>
 
@@ -49,11 +50,11 @@ Please review the [Action Batch API documentation](https://developer.cisco.com/m
 
 ## Requirements
 
-Meraki ActionBatcher should work on Python 3.5 or greater.  In addition to modules distributed with ActionBatcher, ActionBatcher depends on the [Gooey](https://pypi.org/project/Gooey/) and [JSONMerge](https://pypi.org/project/jsonmerge/) external packages.  Both can be installed via the included requirements.txt file
+Meraki ActionBatcher requires Python 3.5 or greater.  In addition to modules distributed with ActionBatcher, ActionBatcher depends on the [Gooey](https://pypi.org/project/Gooey/) and [JSONMerge](https://pypi.org/project/jsonmerge/) external packages.  Both can be installed via the included requirements.txt file
 
 ## Installing to a Python Virtual Environment
 
-Note: For mac, replace "python" with "python3" and for both platforms, make sure the output of python -v is 3.5 or greater.
+Note: For Mac OSX, replace "python" with "python3" and for both platforms, make sure the output of python -v (or python3 -v) is 3.5 or greater.
 
 **1. Clone this repository locally**
 ```
@@ -146,12 +147,110 @@ Most of the Action Batcher operations mirror the Action Batch API.
 
 [Back To Top](#Meraki-ActionBatcher)
 
-## Action Batcher Operations - Create Action Batch
+## Action Batcher Operations: Create Action Batch
 
-* **Create An Action Batch** - Creates a new Action Batch for the given org
-    * 
+Creates a new Action Batch for the given org
 
-## Config File
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID in which you wish to create the new Action Batch
+    * JSON Action(s):  One or more JSON actions to submit to the ActionBatch API
+        - One or MORE JSON files can be selected using CNTRL+Click (CMD+Click on Mac OSX)
+        - All files are checked for valid JSON - if the JSON is invalid, ActionBatcher notes which files are invalid and tells the user
+        - If all files are valid, they will be merged **in the order that they are clicked**.  Order of operation is important often when committing multiple actions to an Action Batch via the API (i.e. you can't update a switchport on an unclaimed switch)
+        - See (Creating Action Batch JSON)[#Creating-Action-Batch-JSON] for information on how ActionBatcher expects the JSON to be formatted
+* **Optional Arguments**
+    * Confirm Action Batch:  Whether or not to confirm the Action Batch when it is first submitted
+        - Action Batches are not executed until they are marked as confirmed
+        - It is possible to use the UpdateActionBatch operation (outlined in the next section) to confirm an Action Batch
+        - **Once confirmed Action Batch cannot be deleted!** 
+        - *As Per Meraki Documentation*, Action Batches that have been submitted but not confirmed will be deleted by the API after **one week**
+    * Synchronous:  Whether or not the Action Batch will be executed Synchronously or Asynchronously
+        - Note that this setting can be updated/changed per Action Batch *until* the Action Batch has been confirmed
+        - Only 20 resources (individual actions) can be run synchronously in a single batch
+    * Indent JSON Output:  Whether or not to indent the JSON output to screen
+    * Export File:  If defined, all actions are combined and written to this file.  Basically this is a dump of exactly what is sent to the Action Batch API
+
+
+## Action Batcher Operations: Update Action Batch
+
+Updates an existing Action Batch
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID for the Action Batch to be updated
+    * Batch ID:  The Batch ID for the Action Batch to be updated (can get from GetOrgActionBatch operation or ActionBatchStatus)
+* **Optional Arguments**
+    * Confirm Action Batch:  Whether or not to confirm the Action Batch when it is as part of the update
+    * Synchronous:  Whether or not the Action Batch will be executed Synchronously or Asynchronously
+        - Note that this setting can be updated/changed per Action Batch *until* the Action Batch has been confirmed
+        - Only 20 resources (individual actions) can be run synchronously in a single batch
+    * Indent JSON Output:  Whether or not to indent the JSON output to screen
+
+
+
+## Action Batcher Operations: GetOrg Action Batch
+
+JSON output for all Action Batches for a given Dashboard Organization (Org ID)
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID
+* **Optional Arguments**
+    * Indent JSON Output:  Whether or not to indent the JSON output to screen
+
+
+## Action Batcher Operations: Get Action Batch
+
+Detailed JSON output for an individual Action Batch
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID
+    * Batch ID:  The Batch ID to to retrieve (can get from GetOrgActionBatch operation or ActionBatchStatus)
+* **Optional Arguments**
+    * Indent JSON Output:  Whether or not to indent the JSON output to screen
+
+## Action Batcher Operations: Action Batch Status
+
+Print a list of BatchIDs that match a given condition.
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID
+    * Action Batch Status Condition to Check:  Retrieve Action Batches that match one of the following:
+        - Confirmed/Unconfirmed Action Batches
+        - Completed/Incomplete Action Batches
+        - Failed Action Batches
+* **Optional Arguments**
+    * Indent JSON Output:  Whether or not to indent the JSON output to screen
+
+## Action Batcher Operations: Delete Action Batches
+
+Delete an **unconfirmed** Action Batch
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID
+    * Batch ID:  The Batch ID delete
+
+
+## Action Batcher Operations: Check Until Complete
+
+Check a **confirmed** Action Batch until it is complete
+
+* **Required Arguments** 
+    * API Key:  Your Meraki API Key
+    * Org ID:  The Org ID
+    * Batch ID:  The Batch ID to check status
+* **Optional Arguments**
+    * Maximum Number of Tries: The maximum # of API calls to make before stopping
+        - Default is 10 API Calls
+
+
+## Creating Actions
+
+## Using Default Config File
 
 * Use
 
@@ -165,8 +264,6 @@ Most of the Action Batcher operations mirror the Action Batch API.
     * about Meraki Action Batched
     * about this Tool
 
-* Installation
-    * dependeinces
 * Use
     * config file
     * payloads
