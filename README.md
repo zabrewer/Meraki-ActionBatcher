@@ -292,6 +292,107 @@ Check a **confirmed** Action Batch until it is complete
 ## Creating Actions
 
 
+``` json5
+{
+
+	"actions": [{
+			"resource": "/networks/{net_id}/vlans",
+			"operation": "create",
+			"body": {
+				"id": "{{vlan}}",
+				"name": "API-VLAN",
+				"applianceIp": "172.16.{vlan}.1",
+				"subnet": "172.16.{vlan}.0/24"
+			}
+		},
+		{
+			"resource": "/networks/{net_id}/devices/{switch_a}",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}"
+			}
+		},
+		{
+			"resource": "/networks/{net_id}/devices/{switch_b}",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}"
+			}
+		},
+		{
+			"resource": "/devices/{switch_a}/switchPorts/1",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}",
+				"type": "access",
+				"vlan": "{{vlan}}"
+			}
+		},
+		{
+			"resource": "/devices/{switch_b}/switchPorts/1",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}",
+				"type": "access",
+				"vlan": "{{vlan}}"
+			}
+		}
+
+	]
+}
+```
+
+``` jsonc
+{
+
+	"actions": [{
+			"resource": "/networks/{net_id}/vlans",
+			"operation": "create",
+			"body": {
+				"id": "{{vlan}}",
+				"name": "API-VLAN",
+				"applianceIp": "172.16.{vlan}.1",
+				"subnet": "172.16.{vlan}.0/24"
+			}
+		},
+		{
+			"resource": "/networks/{net_id}/devices/{switch_a}",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}"
+			}
+		},
+		{
+			"resource": "/networks/{net_id}/devices/{switch_b}",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}"
+			}
+		},
+		{
+			"resource": "/devices/{switch_a}/switchPorts/1",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}",
+				"type": "access",
+				"vlan": "{{vlan}}"
+			}
+		},
+		{
+			"resource": "/devices/{switch_b}/switchPorts/1",
+			"operation": "update",
+			"body": {
+				"tags": "{{tags}}",
+				"type": "access",
+				"vlan": "{{vlan}}"
+			}
+		}
+
+	]
+}
+```
+
+
 [Back To Index](#Meraki-ActionBatcher)
 
 ## Using Default Config File
