@@ -17,13 +17,10 @@
         - [Action Batcher Operations: Action Batch Status](#Action-Batcher-Operations:-Action-Batch-Status)
         - [Action Batcher Operations: Delete Action Batches](#Action-Batcher-Operations:-Delete-Action-Batches)
         - [Action Batcher Operations: Check Until Complete](#Action-Batcher-Operations:-Check-Until-Complete)
-- [Creating Actions](Creating-Actions)
-    - Creating Actions using JSON
-    - Using Action Tools to Create Actions (for Action Batches)
-- [Using Default Config File](Using-Default-Config-File)
-- Changelog
-- License
-- Contributing
+- [Creating Actions](#Creating-Actions)
+- [Using Default Config File](#Using-Default-Config-File)
+- [Changelog](#Changelog)
+- [License](#License)
 
 
 ![Action Batcher](https://github.com/zabrewer/Meraki-ActionBatcher/blob/master/assets/CreateActionBatchSmall.png)
@@ -291,171 +288,171 @@ Check a **confirmed** Action Batch until it is complete
 
 ## Creating Actions
 
+*Note:  I'm working on a tool to greatly reduce creating Action Batch JSON.  I will post to this repo and the parent repo as soon as I have a version ready for testing.*
+
+*Note 2:  There are sample JSON actions that can be customized and used with Action Batcher in the /actions directory of this repo..  See the [Actions README](/actions/README-actions.md) file for more details.*
+
+*Note 3:  Action Batcher checks for valid JSON files when creating an Action Batch - In addition to testing and working with JSON in code, there are multiple resources for linting (validating) JSON online including https://jsonviewer.io/tree, https://jsonlint.com/, and https://beautifier.io/.*
+
+The basic format for a Meraki Action Batch API request is as follows (where resource is the relative path to the URI resource and the ACTION BODY are the actions to be performed using the resource). Remember you can have multiple actions in a single action batch (up to 100 for asynchronous Action Batches and 20 for synchronous batches).
+
+Note that the following is an example for demonstration and is **not** valid JSON.
+
+```JSON
+{
+    "confirmed": true,
+    "synchronous": true,
+    "actions": [{
+        "resource": "/path/to/resource",
+        "operation": "operation",
+        "body": {
+            ACTION BODY
+        }
+    }]
+}
+```
+
+
+The Action Batcher tool only expects the actions themselves.  So a basic template JSON file for Action Batcher would be as follows (again, this is an example and not valid JSON):
+
+
+```JSON
+{
+    "actions": [{
+        "resource": "/path/to/resource",
+        "operation": "update",
+        "body": {
+            ACTION BODY
+        }
+    }]
+}
+```
+
+Let's take a basic example that adds a tag for a basic network device (this *is* valid JSON and would be accepted by Action Batcher once the {{NetworkID}} and {{DeviceID}} variables were changed to one that exists within the given Org):
+
+{
+    "actions": [{
+        "resource": "/networks/{{NetworkID}}/devices/{{DeviceID}}",
+        "operation": "update",
+        "body": {
+            "tags": "CoreSwitch"
+        }
+    }]
+}
+
+
+A more complete example - the JSON for the actions used in the actionBatch-VlanUpdate.py example script on [Cisco Devnet's documentation for Action Batches](https://developer.cisco.com/meraki/api/#/rest/guides/action-batches).
+
+As per the documentation for the script:  *This will create a new VLAN on a Meraki MX Security Appliance. It will then update multiple switches with new tags. Finally, several ports will be updated to leverage the new VLAN settings.*
+
+You would need to replace the following with values for your vlan#, networkID, switchIDs, etc (the template engine I am working on will simplify this process):
+
+vlan - vlan number
+net_id - NetworkID for the network of both switches
+switch_a - device ID for switch_a
+switch_b - device ID for switch_b
+tags - any tags to update the switches with
+
 
 ```JSON
 {
 
-	"actions": [{
-			"resource": "/networks/{net_id}/vlans",
-			"operation": "create",
-			"body": {
-				"id": "{{vlan}}",
-				"name": "API-VLAN",
-				"applianceIp": "172.16.{vlan}.1",
-				"subnet": "172.16.{vlan}.0/24"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_a}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_b}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_a}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_b}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		}
+    "actions": [{
+            "resource": "/networks/{{net_id}}/vlans",
+            "operation": "create",
+            "body": {
+                "id": "{{vlan}}",
+                "name": "API-VLAN",
+                "applianceIp": "172.16.{{vlan}}.1",
+                "subnet": "172.16.{{vlan}}.0/24"
+            }
+        },
+        {
+            "resource": "/networks/{{net_id}}/devices/{{switch_a}}”,
+            "operation": "update",
+            "body": {
+                "tags": "{{tags}}"
+            }
+        },
+        {
+            "resource": "/networks/{{net_id}}/devices/{{switch_b}}”,
+            "operation": "update",
+            "body": {
+                "tags": "{{tags}}"
+            }
+        },
+        {
+            "resource": "/devices/{{switch_a}}/switchPorts/1",
+            "operation": "update",
+            "body": {
+                "tags": "{{tags}}",
+                "type": "access",
+                "vlan": "{{vlan}}"
+            }
+        },
+        {
+            "resource": "/devices/{{switch_b}}/switchPorts/1",
+            "operation": "update",
+            "body": {
+                "tags": "{{tags}}",
+                "type": "access",
+                "vlan": "{{vlan}}"
+            }
+        }
 
-	]
+    ]
 }
 ```
 
-```jsonc
-{
-
-	"actions": [{
-			"resource": "/networks/{net_id}/vlans",
-			"operation": "create",
-			"body": {
-				"id": "{{vlan}}",
-				"name": "API-VLAN",
-				"applianceIp": "172.16.{vlan}.1",
-				"subnet": "172.16.{vlan}.0/24"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_a}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_b}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_a}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_b}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		}
-
-	]
-}
-```
-
-```json5
-{
-
-	"actions": [{
-			"resource": "/networks/{net_id}/vlans",
-			"operation": "create",
-			"body": {
-				"id": "{{vlan}}",
-				"name": "API-VLAN",
-				"applianceIp": "172.16.{vlan}.1",
-				"subnet": "172.16.{vlan}.0/24"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_a}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/networks/{net_id}/devices/{switch_b}",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_a}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		},
-		{
-			"resource": "/devices/{switch_b}/switchPorts/1",
-			"operation": "update",
-			"body": {
-				"tags": "{{tags}}",
-				"type": "access",
-				"vlan": "{{vlan}}"
-			}
-		}
-
-	]
-}
-```
 
 [Back To Index](#Meraki-ActionBatcher)
 
 ## Using Default Config File
 
+There is an empty config file called "defaults.json" in this repo.  Config files take the following form:
+
+```JSON
+{
+	"common": {
+		"apikey": "",
+		"orgid": "",
+		"batchid": "",
+		"prettyprint": ""
+	},
+	"other": {
+		"createactionbatch": {
+			"json_actionfile_path": "",
+			"confirm": false,
+			"synchronous": false,
+			"exportfile_path": ""
+		},
+		"updateactionbatch": {
+			"json_actionfile_path": "",
+			"confirm": false,
+			"synchronous": false,
+			"exportfile_path": ""
+		}
+
+	}
+}
+```
+
+The sections should be self explanatory - "common" are common to all Action Batcher operations, while the "other" section is specific to specific operations.  
+
+If the config file is present, Action Batcher starts with the values pre-filled as defaults in the respective fields and checkboxes.  They can always be overwritten while ActionBatcher is open but any new instances of ActionBatcher will use the defaults.json values when opened.
+
 
 [Back To Index](#Meraki-ActionBatcher)
 
-* License
+
+## Changelog
+
+[Changelog](CHANGELOG.txt)
 
 [Back To Index](#Meraki-ActionBatcher)
 
-* Contributing
+## License
 
-[Back To Index](#Meraki-ActionBatcher)
-* Changelog
+[License](LICENSE)
 
 [Back To Index](#Meraki-ActionBatcher)
