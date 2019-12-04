@@ -298,7 +298,7 @@ The basic format for a Meraki Action Batch API request is as follows (where reso
 
 Note that the following is an example for demonstration and is **not** valid JSON.
 
-```JSON
+```Javascript
 {
     "confirmed": true,
     "synchronous": true,
