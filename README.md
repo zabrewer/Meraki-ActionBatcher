@@ -1,6 +1,6 @@
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/zabrewer/Meraki-ActionBatcher)# Meraki ActionBatcher
+Meraki ActionBatcher
 -----------------  
-
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/zabrewer/Meraki-ActionBatcher) 
 - [Introduction](#Introduction)
 - [About Meraki Action Batches](#Meraki-Action-Batches)
 - [Installation](#Installation)
