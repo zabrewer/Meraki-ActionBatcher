@@ -428,7 +428,7 @@ def main():
         help='Pretty print JSON output to screen',
         action='store_true',
         dest='prettyprint',
-        default=deep_get(load_defaults(), 'common.prettyprint')
+        #default=deep_get(load_defaults(), 'common.prettyprint')
     )
 
     createbatch_parser.add_argument(
@@ -501,7 +501,7 @@ def main():
         help='Pretty print JSON output to screen',
         action='store_true',
         dest='prettyprint',
-        default=deep_get(load_defaults(), 'common.prettyprint')
+        #default=deep_get(load_defaults(), 'common.prettyprint')
     )
 
 ##### Get Org Action Batch Parser #####
@@ -535,7 +535,7 @@ def main():
         help='Pretty print JSON output to screen',
         action='store_true',
         dest='prettyprint',
-        default=deep_get(load_defaults(), 'common.prettyprint')
+        #default=deep_get(load_defaults(), 'common.prettyprint')
     )
 
 ##### Get Action Batch Parser #####
@@ -578,7 +578,7 @@ def main():
         help='Pretty print JSON output to screen',
         action='store_true',
         dest='prettyprint',
-        default=deep_get(load_defaults(), 'common.prettyprint')
+        #default=deep_get(load_defaults(), 'common.prettyprint')
     )
 
 ##### Batch By Status Action Batch Parser #####
@@ -620,7 +620,7 @@ def main():
         help='Pretty print JSON output to screen',
         action='store_true',
         dest='prettyprint',
-        default=deep_get(load_defaults(), 'common.prettyprint')
+        #default=deep_get(load_defaults(), 'common.prettyprint')
     )
 
 ##### Delete Action Batches Parser #####
