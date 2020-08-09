@@ -1,5 +1,0 @@
-# Changelog
-
-## 0.32.0
-
-Initial public release

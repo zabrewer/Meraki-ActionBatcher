@@ -409,7 +409,7 @@ def main():
         'Defined but unconfirmed batches will be automatically deleted after 1 week.',
         action='store_true',
         dest='confirmed',
-        default=deep_get(load_defaults(), 'other.updateactionbatch.confirm')
+        #default=deep_get(load_defaults(), 'other.updateactionbatch.confirm')
     )
     
     createbatch_parser.add_argument(
@@ -419,7 +419,7 @@ def main():
         'There can be at most 20 actions in synchronous batch.',
         action='store_true',
         dest='synchronous',
-        default=deep_get(load_defaults(), 'other.updateactionbatch.synchronous')
+        #default=deep_get(load_defaults(), 'other.updateactionbatch.synchronous')
     )
 
     createbatch_parser.add_argument(
@@ -481,8 +481,8 @@ def main():
         'Batches are not executed until confirmed is set. Once a batch is confirmed it cannot be deleted. ' +
         'Defined but unconfirmed batches will be automatically deleted after 1 week.',
         action='store_true',
-       dest='confirmed',
-        default=deep_get(load_defaults(), 'other.updateactionbatch.confirm')
+        dest='confirmed',
+        #default=deep_get(load_defaults(), 'other.updateactionbatch.confirm')
     )
     
     updatebatch_parser.add_argument(
@@ -492,7 +492,7 @@ def main():
         'There can be at most 20 actions in synchronous batch.',
         action='store_true',
         dest='synchronous',
-        default=deep_get(load_defaults(), 'other.updateactionbatch.synchronous')
+        #default=deep_get(load_defaults(), 'other.updateactionbatch.synchronous')
     )
 
     updatebatch_parser.add_argument(
